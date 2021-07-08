@@ -19,5 +19,6 @@ Usage is:
 
 Command line options include:
 
+    -f <rate> : sample rate, must be 48000, 44100, 22050, 11025 or 8000 (default: 44100)
     -g <gain> : gain must be between 1 and 7 (default 6)
     -h : prints this text

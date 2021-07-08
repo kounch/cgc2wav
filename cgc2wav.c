@@ -88,7 +88,7 @@ static void close_wav(FILE *outfile)
 	fwrite(&foo,sizeof(foo),1,outfile);
 
 	foo = foo-sizeof(wave) + 8;
-	fseek(outfile,sizeof(wave)-sizeof(unsigned long),SEEK_SET);
+	fseek(outfile,sizeof(wave)-sizeof(unsigned int),SEEK_SET);
 	fwrite(&foo,sizeof(foo),1,outfile);
 
 	fclose(outfile);
@@ -182,6 +182,7 @@ static void print_usage()
     printf( "Usage:\n");
     printf( "cgc2wav -i <input_filename> -o <output_filename>\n");
     printf( "Command line option:\n");
+    printf( "-f <rate> : sample rate, must be 48000, 44100, 22050, 11025 or 8000 (default: 44100)\n");
     printf( "-g <gain> : gain, must be between 1 and 7 (default: 6)\n");
     printf( "-h        : prints this text\n");
     exit(1);
@@ -226,7 +227,7 @@ int main(int argc, char *argv[])
                 } else {
                     if ( arg1<0 || arg1>7 ) {
                         fprintf( stderr, "Illegal gain value: %i.\n", arg1);
-                        fprintf( stderr, "Gain must be between 1 and 8.\n");
+                        fprintf( stderr, "Gain must be between 1 and 7.\n");
                     }
                     p_gain = arg1*0x0f;
                 }    
