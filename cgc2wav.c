@@ -183,7 +183,7 @@ static void process_cas(FILE *input, FILE *output)
 
 static void print_usage()
 {
-    printf("CGC2WAV v1.0a\n");
+    printf("CGC2WAV v1.0.1a\n");
     printf("Colour Genie CAS to PCM wave file converter.\n");
     printf("Copyright 2009 by Attila Grosz\n");
     printf("Usage:\n");
